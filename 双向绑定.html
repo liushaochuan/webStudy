@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="cache-control" content="no-cache">
+  <title>双向绑定</title>
+</head>
+<body>
+  双向绑定
+  <button id="btn">这是一个按钮</button>
+</body>
+<script>
+  window.onload = function () {
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', sendAjax, false)
+    function sendAjax () {
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', 'https://easy-mock.com/mock/5cb98986fce3345ddaaa40e2/example/index', true)
+      xhr.send()
+      xhr.addEventListener('load', function() {
+        console.log(JSON.parse(xhr.response))
+      })
+    }
+  }
+</script>
+</html>

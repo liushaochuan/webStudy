@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    html * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <article class="layout">
+    <style>
+      .float {
+        height: 100px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box; /* Firefox */
+        -webkit-box-sizing: border-box; /* Safari */
+        border: 1px solid black;
+      }
+      .float.left {
+        float: left;
+        width: 300px;
+      }
+      .float.right {
+        float: right;
+        width: 300px;
+      }
+      .float.content {
+        background-color: #999;
+      }
+      .layout:after {
+        display: block;
+        content: "";
+        clear: both;
+        visibility:hidden;
+        height:0;
+      }
+    </style>
+    <div class="float left"></div>
+    <div class="float right"></div>
+    <div class="float content">
+      <p>1.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>2.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>3.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>4.这里是内容这里是内容这里是内容这里是内容</p>
+    </div>
+  </article>
+</body>
+
+</html>

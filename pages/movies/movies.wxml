@@ -1,0 +1,15 @@
+<import src="/component/movie-list/movie-list-template"></import>
+<import src="/component/movie-grid/movie-grid"></import>
+<view class="search-box">
+  <view class="iconfont icon-i-search search-icon" bindtap="bindButtonTap"></view>
+  <input class="search" type="text" placeholder="你的名字." focus="{{focus}}" value="{{searchQuery.parameter.q}}" placeholder-style="color:#f2f2f2" confirm-type="search" bind:focus="onFocus" bindinput="onInput"/>
+  <view class="iconfont icon-clear1 search-icon" bindtap="clear"></view>
+</view>
+<view class="box" wx:if="{{!openSearch}}">
+  <block wx:for="{{moviesList}}" wx:for-item="movies" wx:key="index">
+    <template is="movieListTemplate" data="{{...movies}}"></template>
+  </block>
+</view>
+<view class="search-content-box" wx:else>
+  <template is="movieGridTemplate" data="{{movieList: searchList}}"></template>
+</view>

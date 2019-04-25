@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>postMessage</title>
+</head>
+
+<body>
+  <button onclick="test()" >点一下</button>
+  <iframe src="http://127.0.0.1:5500/b-page.html" frameborder="0"></iframe>
+</body>
+<script>
+  function test () {
+    var B =  window.frames[0]
+    B.postMessage('这是data', 'http://127.0.0.1:5500/b-page.html')
+  }
+  window.addEventListener('message', (event) => {
+    console.log(event.data)
+  })
+</script>
+
+</html>

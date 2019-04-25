@@ -1,0 +1,25 @@
+.star-box {
+  height: 30rpx;
+  width: 200rpx;
+}
+.star-img-box {
+  height: 30rpx;
+  float: left;
+}
+.star-img {
+  height: 26rpx;
+  width: 26rpx;
+}
+/* .star-img.star-img-dark {
+  height: 26rpx;
+  width: 26rpx;
+}
+.star-img.star-img-light {
+  height: 26rpx;
+  width: 26rpx;
+} */
+.star-scord {
+  float: right;
+  color: #999;
+  font-size: 26rpx;
+}

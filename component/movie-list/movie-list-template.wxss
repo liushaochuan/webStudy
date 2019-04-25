@@ -1,0 +1,23 @@
+@import "/component/movie-item/movie-template.wxss";
+.movie-list-box {
+  margin-bottom: 40rpx;
+  background-color: #fff;
+}
+.movie-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 32rpx;
+  padding: 32rpx 20rpx 22rpx;
+}
+.movie-list-title {
+  color: #999;
+}
+.movie-list-more {
+  /* color: #ef4ba5; */
+  color: blue;
+}
+.movie-item-box{
+  display: flex;
+  flex-direction: row;
+}

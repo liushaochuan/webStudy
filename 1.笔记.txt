@@ -1,0 +1,267 @@
+.video-pannel:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    top: 13%;
+    left: 40%;
+    margin-left: 0;
+    background: #fff;
+  }
+模块
+  数据moke，如何用虚拟数据调试
+  html语义化
+    1. header 元素代表“网页”或“section”的页眉,通常包含h1-h6元素或hgroup，作为整个页面或者一个内容块的标题。也可以包裹一节的目录部分，一个搜索框，一个nav，或者任何相关logo。
+    2. footer元素代表“网页”或“section”的页脚，通常含有该节的一些基本信息，譬如：作者，相关文档链接，版权资料。如果footer元素包含了整个节，那么它们就代表附录，索引，提拔，许可协议，标签，类别等一些其他类似信息。
+    3. hgroup元素代表“网页”或“section”的标题
+    4. nav元素代表页面的导航链接区域。用于定义页面的主要导航部分。
+    5. aside元素被包含在article元素中作为主要内容的附属信息部分，其中的内容可以是与当前文章有关的相关资料、标签、名次解释等。（特殊的section）
+    6. section元素代表文档中的“节”或“段”，“段”可以是指一篇文章里按照主题的分段；“节”可以是指一个页面里的分组。
+    7. <article> 标签规定独立的自包含内容
+  gulp webpack
+  
+  svg
+  <mate name="renderer" content="webkit"> // 双核浏览器优先使用webkit内核
+  http 状态码
+    1XX：通知
+    2XX: 成功
+      200("OK")
+      202("Accepted")
+        客户端的请求无法或将不被实时处理。请求稍后会被处理。请求看上去是合法的，但在实际处理它时有出现问题的可能。
+        若一个请求触发了一个异步操作，或者一个需要现实世界参与的动作，或者一个需要很长时间才能完成且没必要让Web客户端一直等待的动作时，这个相应代码是一个合适的选择。
+      204("No Content")
+        若服务器拒绝对PUT、POST或者DELETE请求返回任何状态信息或表示，那么通常采用此响应代码。服务器也可以对GET请求返回此响应代码，这表明“客户端请求的资源存在，但其表示是空的”。注意与304("Not Modified")的区别。204常常用在Ajax应用里。服务器通过这个响应代码告诉客户端：客户端的输入已被接受，但客户端不应该改变任何UI元素。
+      206("Partial Content") 部分GET请求常用于大型二进制文件的断点续传。
+    3XX 重定向
+      301("Moved Permanently")
+        永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替
+      302	(Found)
+        临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI
+      304("Not Modified") 
+    4XX：客户端错误
+      400("Bad Request")
+        这是一个通用的客户端错误状态，当其他4XX响应代码不适用时，就采用400。
+      401("Unauthorized") 请求要求用户的身份认证
+      404("Not Found")
+    5XX 服务端错误
+  axios
+    支持浏览器和node.js
+    支持promise
+    能拦截请求和响应
+    能转换请求和响应数据
+    能取消请求
+    自动转换JSON数据
+    浏览器端支持防止CSRF(跨站请求伪造)
+  vue-route
+  dns预解析
+  图片格式的区别
+  background的设计
+  script标签放在head中的问题，async标识的作用
+  模块化处理方式有多少种
+  jq 新版本功能
+  jq源码 核心架构 事件委托 插件机制
+  vue 源码 项目中的问题
+  sass less
+  css3动画
+  bfc
+
+  keep-Alive 持久连接
+  管线化： 依赖keep-Alive 请求1 -> 请求2 -> 请求3 -> 响应1 -> 响应2 -> 响应3 
+
+类与对象
+  创建对象的方法：  
+    1. 字面量 var obj = {}
+    2. 构造方法 var obj = new M()
+    3. var obj = Object.create(obj) // obj.__proto__ === obj
+
+  instanceof
+    {任何对象} instanceof Object === true
+
+  var m = new M()
+    1. 一个新对象被创建，它继承M.prototype， 即m.__proto__ = M.prototype
+    2. 构造函数M被执行
+    3. 如果构造函数返回一个对象，那么这个对象会替换new的结果，如果返回的不是对象，那么m的值就是new的结果
+
+继承
+  1. 在子类中执行父类的构造函数
+    function Parent(name) {
+      this.name = name
+    }
+    function Child (name, age) {
+      Parent.call(this)
+      this.age = age
+    }
+    特点：不能继承父类原型上的属性，实例与父类没有关系
+
+  2. 父类的实例作为子类的原型对象
+    function Parent(name) {
+      this.name = name
+      this.arr = [1,2,3,4]
+    }
+    Parent.prototype.list = [1]
+    function Child (age) {
+      this.age = age
+    }
+    Child.prototype = new Parent('name')
+    特点：父类的引用类型属性将为所有子类共有
+
+  3.
+    function Parent(name) {
+      this.arr = [1,2,3,4]
+    }
+    function Child (age) {
+      Parent.call(this)
+      this.age = age
+    }
+    Child.prototype = new Parent()
+    特点：父类的构造函数执行两次，父类的属性在子类中有两份
+
+  4.
+    function Parent(name) {
+      this.arr = [1,2,3,4]
+    }
+    function Child (age) {
+      Parent.call(this)
+      this.age = age
+    }
+    Child.prototype = Parent.prototype
+    特点：实例不是子类的实例，而是父类的实例，因为constructer在prototype上，直接把父类的prototype赋给子类的prototype，子类的constructer就直接是父类的constructer
+
+  5. 
+    function Parent(name) {
+      this.arr = [1,2,3,4]
+    }
+    function Child (age) {
+      Parent.call(this)
+      this.age = age
+    }
+    Child.prototype = Object.create(Parent.prototype)
+    完美继承
+
+
+通信
+  同源策略
+    协议，ip，端口三者相同为同源
+    不同源之间不能读取cookie、indexDB和本地存储、不能获取DOM、不能进行ajax请求
+    
+  前后端通信
+    ajax
+    webSocket
+    CORS
+    fetch()
+
+  原生ajax
+    XMLHttpRequest对象的工作流程
+    兼容性 ActiveXObject('Microsoft.XMLHTTP')
+    事件触发条件
+      1. new xhr
+      2. xhr.open(method, url, true)
+      3. xhr.send()
+      4. xhr.onload = function() {
+        xhr.status // 200 304 206(媒体资源)
+      }
+    事件触发顺序
+
+  跨域方式
+    JSONP
+      利用script标签的异步加载，发送一个get请求，并传入一个回调函数名，被请求的文件需要调用这个函数并传入自己的参数
+    hash #后面是hase ?后面是search
+      hash修改不会刷新页面，hash修改会触发hashchange事件，可通过window.location.hash拿到传入的hash
+    postMessage h5的跨域方式
+
+    webSocket 不受同源策略影响
+
+    CORS 变种ajax，浏览器识别到跨域请求后，往请求头中添加Origin, 服务器端需要筛选允许请求的ip
+    http://www.ruanyifeng.com/blog/2016/04/cors.html
+    // fetch()
+
+安全类
+  CSRF
+    基本概念：跨站请求伪造，攻击者盗用用户身份，以用户名义发送恶意请求
+    攻击原理：
+      1. 用户登陆信任网站A，A通过用户的身份验证，并向用户返回Cookie，保存在用户浏览器；
+      2. 用户没有登出网站A或者登出后Cookie未失效的情况下，访问危险网站B；
+      3. B网站访问第三方站点A，发出一个请求，浏览器会自动带上用户的Cookie，A网站认为是用户的请求，然后响应
+    攻击操作方式
+      1. 用img、script发送get请求
+      2. 伪造表单发送post请求
+    防御措施
+    1. Token验证
+    2. Referer验证，在HTTP头中有一个字段叫Referer，它记录了该HTTP请求的来源地址
+  XSS
+    跨站脚本攻击
+    http://www.imooc.com/learn/812
+
+算法
+  排序: 冒泡、快速 https://segmentfault.com/a/1190000009426421、选择、希尔
+  堆栈 、队列、链表 https://juejin.im/entry/58759e79128fe1006b48cdfd
+  递归 https://segmentfault.com/a/1190000009857470
+  波兰式和逆波兰式
+    理论： http://www.cnblogs.com/chenying99/p/3675876.html
+    git: https://github.com/Tairraos/rpn.js/blob/master/rpn.js
+
+浏览器
+  渲染机制
+    什么是DOCTYPE及作用
+      DTD（文档类型定义）是一系列的语法规则，用来定义XML或(X)HTML的文件类型，浏览器通过DTD来判断文档类型，再决定用哪种协议来解析以及切换浏览器模式，DOCTYPE用来声明文档类型和DTD规范。
+      html5 html
+      html4.01 strict.dtd
+      html4.01 loose.dtd
+    浏览器渲染过程
+      
+    重排Reflow
+    重绘Repaint
+    布局Layout
+  js运行机制
+    任务队列
+    运行栈
+  页面性能
+    资源压缩合并，减少http请求
+    非核心异步加载
+      1. 动态脚本加载（动态创建节点）
+      2. defer 在html解析完之后才会执行，有多个时按加载顺序依次执行
+      3. async 在html加载完成后立即执行，有多个时执行顺序与加载顺序无关
+    利用浏览器缓存 (与缓存相关的协议头)
+      1. 强缓存
+        Expires 在一个绝对时间内读取缓存信息
+        Cache-Control 相对时间内读取缓存（优先级高）
+      2. 协商缓存 强缓存过期后
+        1. Last-Modified If-Modified-Since
+        2. Etag(hash) If-None-Match
+        
+    使用CDN
+    预解析NDS
+      <meta http-equiv="x-dns-prefetch-control" content="on"> // 强制打开a标签使用https时的DNS预解析
+      <link rel="dns-prefetch" href="**"> // 预解析NDS
+  错误监控
+    前端错误的分类
+      代码错误
+        try...catch
+        window.onerror
+      资源加载错误
+        element.onerror // error事件不会冒泡
+        Error 但是可以捕获
+        performance.getEntries() // 获取所有成功加载的资源
+        跨域js运行错误
+          会有错误提示，但没有具体信息
+          在script标签增加crossorigin属性，设置js资源响应头Access-Control-Allow-Origin: *
+    如何上报
+      ajax通信上报（不推荐）
+      利用image对象上报
+
+MVVM框架
+  1. 了解MVC
+  2. MVVM定义
+  3. 双向绑定原理
+    Object.defineProperty(obj, prop, descriptor)
+      监听data对象, data变化时会有回调,我们只要定义好回调
+      反向是用事件
+      descriptor {
+        configurable: false,// 默认是false, 为false时，prop属性只读且不能删除
+        enumerable: false,// 默认是false, 为true时prop属性才能出现在枚举属性中
+        value: undefined, // 默认undefined, prop的值
+        writable: false, //默认为false，为true时prop对能被赋值运算符改变
+        get () {},
+        set () {}
+      }

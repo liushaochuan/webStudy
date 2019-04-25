@@ -1,0 +1,9 @@
+@import "/component/movie-item/movie-template.wxss";
+.scroll-box{
+  height: 1600rpx;
+}
+.more-movies-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40rpx 0 40rpx 10rpx;
+}

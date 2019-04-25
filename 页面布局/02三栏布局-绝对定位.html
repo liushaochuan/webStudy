@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    html * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <article class="layout">
+    <style>
+      .absolute {
+        height: 100px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box; /* Firefox */
+        -webkit-box-sizing: border-box; /* Safari */
+        border: 1px solid black;
+        position: relative;
+      }
+      .absolute.left {
+        width: 300px;
+        position: absolute;
+        left: 0;
+      }
+      .absolute.right {
+        width: 300px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .absolute.content {
+        position: absolute;
+        background-color: #999;
+        left: 300px;
+        right: 300px;
+      }
+    </style>
+    <div class="absolute left"></div>
+    <div class="absolute content">
+      <p>1.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>2.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>3.这里是内容这里是内容这里是内容这里是内容</p>
+      <p>4.这里是内容这里是内容这里是内容这里是内容</p>
+    </div>
+    <div class="absolute right"></div>
+  </article>
+</body>
+
+</html>

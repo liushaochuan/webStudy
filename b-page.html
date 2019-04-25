@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>b-page</title>
+</head>
+<body>
+  <div id="box">
+    这是b页面
+  </div>
+</body>
+<script>
+  window.onhashchange = function () {
+    console.log(window.location.hash)
+  }
+  window.addEventListener('message', function(event) {
+    console.log('event', event)
+    document.querySelector('#box').innerHTML = event.data
+    parent.postMessage('这是b页面传入的数据', event.origin)
+  }, false)
+  
+</script>
+</html>

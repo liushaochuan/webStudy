@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+var ws = new WebSocket("wss://echo.websocket.org");
+
+ws.onopen = function(evt) { // 指定连接服务器后的回调函数
+  console.log("Connection open ..."); 
+  ws.send("Hello WebSockets!"); // 向服务器发送数据
+};
+
+ws.onmessage = function(evt) { // 指定收到服务器数据后的回调函数
+  console.log( "Received Message: " + evt.data);
+  ws.close();
+};
+
+ws.onclose = function(evt) {
+  console.log("Connection closed.");
+};    
+</script>
+</html>

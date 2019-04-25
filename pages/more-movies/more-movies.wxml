@@ -1,0 +1,5 @@
+<!--pages/more-movies/more-movies.wxml-->
+<import src="/component/movie-grid/movie-grid.wxml"></import>
+<view>
+  <template is="movieGridTemplate" data="{{movieList}}"></template>
+</view>

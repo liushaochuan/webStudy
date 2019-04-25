@@ -1,0 +1,2 @@
+/* pages/more-movies/more-movies.wxss */
+@import "/component/movie-grid/movie-grid.wxss";

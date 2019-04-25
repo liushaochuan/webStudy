@@ -1,0 +1,2 @@
+<!--pages/article/article.wxml-->
+<web-view src="http://mp.weixin.lemonread.com/#/books"></web-view>

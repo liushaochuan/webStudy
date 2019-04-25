@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>排序</title>
+</head>
+<body>
+</body>
+<script>
+  window.onload = function () {
+    // var arr = [66,4,3,4,6,4,5,7,45,2,6,103,875,54,4,1,54,67,8,5]
+    // console.log('冒泡排序', maopaoSort(arr))
+    // console.log('快速排序', quickSort(arr))
+    // console.log('选择排序', selectionSort(arr))
+    // console.log('插入排序', inseterSort(arr))
+    // 冒泡排序
+    function maopaoSort (list) {
+      const arr = JSON.parse(JSON.stringify(list))
+      const length = arr.length
+      for(let i = 0; i < length; i++) {
+        for(let j = i + 1; j < length; j++) {
+          if(arr[i] > arr[j]) {
+            [arr[i], arr[j]] = [arr[j], arr[i]]
+          }
+        }
+      }
+      return arr
+    }
+    // 快速排序
+    function quickSort (list) {
+      const arr = JSON.parse(JSON.stringify(list))
+      if(arr.length <= 1) return arr
+      const left = []
+      const right = []
+      const criterion = arr.pop()
+      arr.forEach(item => {
+        if(item < criterion) {
+          left.push(item)
+        } else {
+          right.push(item)
+        }
+      });
+      console.trace();
+      return quickSort(left).concat(criterion, quickSort(right))
+    }
+    // 选择排序
+    function selectionSort (arr) {
+      let minIndex
+      const length = arr.length
+      for(var i = 0; i < length - 1; i++) {
+        minIndex = i
+        for(let j = i + 1; j < arr.length; j ++) {
+          if(arr[j] < arr[minIndex]) {
+            minIndex = j
+          }
+        }
+        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+      }
+      return arr
+    }
+    // 插入排序
+    function inseterSort (arr) {
+      const result = []
+      arr.forEach(item => {
+        let length = result.length
+        for(let i = 0; i <= length; i++) {
+          if(i == length) {
+            result.push(item)
+          } else {
+            if(item < result[i]) {
+              result.splice(i, 0, item)
+              break
+            }
+          }
+        }
+      })
+      return result
+    }
+    // 希尔排序
+
+  }
+</script>
+</html>

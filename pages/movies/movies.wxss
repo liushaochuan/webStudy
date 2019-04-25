@@ -1,0 +1,52 @@
+/* pages/movies/movies.wxss */
+@import "/component/movie-list/movie-list-template.wxss";
+@import "/component/movie-grid/movie-grid";
+.box {
+  margin-top: 60rpx;
+  background-color: #f2f2f2;
+}
+.search-box {
+  height: 60rpx;
+  width: 750rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #99b5d7;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+.search-content-box{
+  margin-top: 60rpx;
+}
+.search{
+  width: 600rpx;
+  font-size: 28rpx;
+  margin-top: 2rpx;
+}
+.search-icon {
+  padding: 18rpx;
+  height: 26rpx;
+  width: 26rpx;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 771119 */
+  src: url('//at.alicdn.com/t/font_771119_b38ryxsjg9b.eot');
+  src: url('//at.alicdn.com/t/font_771119_b38ryxsjg9b.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_771119_b38ryxsjg9b.woff') format('woff'),
+  url('//at.alicdn.com/t/font_771119_b38ryxsjg9b.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_771119_b38ryxsjg9b.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:26rpx;
+  color: #99b5d7;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clear1:before { content: "\e61d"; }
+
+.icon-i-search:before { content: "\e617"; }

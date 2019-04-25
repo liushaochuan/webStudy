@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFC</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 400px;
+      background-color: red;
+      float: right;
+      /* overflow: hidden; */
+    }
+    .div {
+      background-color: yellow;
+    }
+    .div1 {
+      width: 100px;
+      height: 100px;
+      float: left;
+      background-color: #666;
+    }
+    .div2 {
+      width: 100px;
+      height: 100px;
+      background-color: #666;
+      float: right;
+    }
+    .div3 {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="div div1"></div>
+    <div class="div div2"></div>
+    <div class="div div3">
+        <p>1、两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。</p>
+        <p>2、两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。</p>
+        <p>3、两个外边距一正一负时，折叠结果是两者的相加的和。</p>
+    </div>
+  </div>
+</body>
+</html>
